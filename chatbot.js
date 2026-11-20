@@ -1,5 +1,5 @@
 'use strict';
-/* "I'am okay" helper: rule-based answers, works offline on GitHub Pages.
+/* "IM" helper: rule-based answers, works offline on GitHub Pages.
    To use a real AI later, host a small backend and set API_URL. Never put API keys in this file. */
 (() => {
   const NAME = "IM!", API_URL = '';
