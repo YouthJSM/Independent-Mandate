@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Independent Mandate – Voter App</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{colors:{wine:'#5E1A35',deep:'#3F0F23',paper:'#F5F1E8',card:'#FFFDF8',line:'#D9CFC0',ink:'#2A1620',mute:'#6B5A62',blue:'#1F4E79',gold:'#8A6212'},fontFamily:{display:['Cinzel','Georgia','serif'],body:['Georgia','serif']}}}}</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-b from-paper to-[#EBE2D0] bg-fixed font-body text-ink antialiased">
+
+<header class="fixed inset-x-0 top-0 z-30 flex items-center gap-2 bg-deep px-3 py-2 text-white">
+  <button id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer" class="h-11 w-11 rounded-lg border border-white/30 text-2xl">≡</button>
+  <button id="backBtn" hidden class="h-11 rounded-lg border border-white/30 px-3 text-sm">← Back</button>
+  <h1 id="title" class="flex-1 truncate text-center font-display text-sm tracking-widest lg:text-left lg:text-base">Independent Mandate</h1>
+  <label class="sr-only" for="lang">Language</label>
+  <select id="lang" class="h-11 max-w-[8rem] rounded-lg border border-white/30 bg-transparent px-2 text-sm">
+    <option class="text-black" value="en">English</option><option class="text-black" value="zu">isiZulu</option><option class="text-black" value="xh">isiXhosa</option><option class="text-black" value="af">Afrikaans</option><option class="text-black" value="nso">Sepedi</option><option class="text-black" value="tn">Setswana</option><option class="text-black" value="st">Sesotho</option><option class="text-black" value="ts">Xitsonga</option><option class="text-black" value="ss">siSwati</option><option class="text-black" value="ve">Tshivenda</option><option class="text-black" value="nr">isiNdebele</option><option class="text-black" value="sasl">SA Sign Language</option>
+  </select>
+</header>
+
+<div id="scrim" class="fixed inset-0 z-40 hidden bg-black/50"></div>
+<aside id="drawer" class="fixed inset-y-0 left-0 z-50 w-72 -translate-x-full bg-deep p-6 text-white transition-transform duration-300" aria-label="Menu">
+  <div class="mb-8 flex items-center justify-between"><span class="font-display tracking-widest">MENU</span><button id="closeBtn" aria-label="Close menu" class="h-11 w-11 text-2xl">✕</button></div>
+  <nav class="flex flex-col font-display text-lg">
+    <a href="#home" class="dl" data-i="home">Home</a><a href="#status" class="dl">My voter status</a><a href="#guide/steps" class="dl" data-i="guide">Voting guide</a>
+    <a href="#guide/video" class="dl">Videos</a><a href="#guide/practice" class="dl">Practice ballot</a>
+    <a href="#stations" class="dl" data-i="stations">Voting stations</a><a href="#register" class="dl" data-i="register">Register to vote</a><a href="#contact" class="dl" data-i="contact">Contact us</a><a href="#verify" class="dl">Verify results</a>
+  </nav>
+</aside>
+
+<main class="mx-auto max-w-xl px-4 pb-32 pt-20 md:max-w-3xl lg:max-w-7xl lg:px-10 lg:pb-16 lg:pt-24">
+
+<!-- HOME -->
+<section id="home" class="screen" data-title="Independent Mandate">
+  <div class="rise overflow-hidden rounded-3xl bg-gradient-to-br from-deep to-wine p-6 text-white shadow-xl md:p-10 lg:grid lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-12 lg:p-16">
+    <div class="text-center lg:text-left">
+      <h2 class="font-display text-3xl leading-tight md:text-5xl lg:text-6xl">Vote with confidence.</h2>
+      <p class="mx-auto mt-5 max-w-xl text-white/85 lg:mx-0 lg:text-lg">Register, find your voting station and practise voting on screen. On election day you vote digitally and in secret. There are no paper ballots.</p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+        <a href="#register" class="btn light sm:!w-auto sm:!px-8">Register to vote</a>
+        <a href="#guide/video" class="btn outline sm:!w-auto sm:!px-8">Watch how to vote</a>
+      </div>
+      <ul class="mt-8 flex flex-wrap justify-center gap-2 text-xs lg:justify-start">
+        <li class="rounded-full border border-white/40 px-3 py-1">100% digital</li><li class="rounded-full border border-white/40 px-3 py-1">12 official languages</li><li class="rounded-full border border-white/40 px-3 py-1">Sign language video</li>
+      </ul>
+    </div>
+    <div class="mt-10 text-center lg:mt-0">
+      <div class="relative mx-auto h-64 w-64 md:h-80 md:w-80 lg:h-[26rem] lg:w-[26rem]">
+        <span class="ring-pulse absolute inset-0 rounded-full border-2 border-white/30"></span>
+        <div class="float absolute inset-3 overflow-hidden rounded-full bg-[#F5F1E8] shadow-2xl">
+          <img src="logo.jpg" alt="Independent Mandate protea flower" class="absolute max-w-none" style="width:340%;left:-120%;top:-25%">
+        </div>
+      </div>
+      <h2 class="mt-8 font-display text-3xl font-bold leading-tight tracking-wide text-white md:text-4xl lg:text-5xl">INDEPENDENT<br>MANDATE</h2>
+      <p class="mt-2 text-white lg:text-lg">Every vote counted. Zero compromises.</p>
+    </div>
+  </div>
+  <ol class="rise d3 mt-8 grid gap-4 lg:grid-cols-3">
+    <li class="flex gap-4 rounded-2xl border border-line bg-card p-5"><span class="num">1</span><div><b class="font-display text-wine">Prepare</b><p class="text-sm text-mute">Learn the steps and try a practice ballot on screen.</p></div></li>
+    <li class="flex gap-4 rounded-2xl border border-line bg-card p-5"><span class="num">2</span><div><b class="font-display text-wine">Register</b><p class="text-sm text-mute">Verify your ID and address to get your voting district.</p></div></li>
+    <li class="flex gap-4 rounded-2xl border border-line bg-card p-5"><span class="num">3</span><div><b class="font-display text-wine">Vote</b><p class="text-sm text-mute">Take your ID to your station and vote on the tablet.</p></div></li>
+  </ol>
+</section>
+
+<!-- STATUS -->
+<section id="status" class="screen" data-title="My voter status" hidden>
+  <div class="card text-center" role="timer">
+    <p class="font-display text-sm text-mute">Election starts in</p>
+    <div class="mt-3 grid grid-cols-3">
+      <div><b id="cdD" class="block font-display text-4xl text-wine tabular-nums">14</b><span class="text-xs text-mute" data-i="days">Days</span></div>
+      <div><b id="cdH" class="block font-display text-4xl text-wine tabular-nums">08</b><span class="text-xs text-mute" data-i="hours">Hours</span></div>
+      <div><b id="cdM" class="block font-display text-4xl text-wine tabular-nums">42</b><span class="text-xs text-mute" data-i="mins">Mins</span></div>
+    </div>
+    <p class="mt-4 border-t border-line pt-3 text-sm text-mute">National &amp; Provincial Elections. Voting hours 07:00–21:00</p>
+  </div>
+  <div class="card mt-4">
+    <p class="mb-3 inline-block rounded-full border-2 border-blue px-3 py-1 text-sm font-semibold text-blue">✔ Registered and verified</p>
+    <dl class="grid grid-cols-[90px_1fr] gap-y-1 text-sm"><dt class="text-mute">Voter</dt><dd id="vName">T. Mokoena</dd><dt class="text-mute">ID</dt><dd id="vId">900101 ••••• 89</dd><dt class="text-mute">Ward</dt><dd>42 (Soweto, Gauteng)</dd><dt class="text-mute">Station</dt><dd>Orlando West High School</dd></dl>
+    <div class="mt-4 grid grid-cols-2 gap-2"><button id="slipBtn" class="btn ghost">View voter slip</button><button id="passBtn" class="btn ghost">Offline pass</button></div>
+  </div>
+  <p class="mt-5 border-l-4 border-gold bg-card p-3 text-sm"><b>Notice:</b> Special vote applications close in 3 days.</p>
+</section>
+
+<!-- REGISTER -->
+<section id="register" class="screen" data-title="Register to vote" hidden>
+  <form id="regForm" novalidate class="space-y-4">
+    <fieldset class="card"><legend class="px-2 font-display text-sm text-wine">Step 1 of 4: Who you are</legend>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div><label class="lbl" for="fName">First name(s)</label><input id="fName" autocomplete="given-name" class="field"></div>
+        <div><label class="lbl" for="sName">Surname</label><input id="sName" autocomplete="family-name" class="field"></div>
+        <div><label class="lbl" for="idNum">13-digit South African ID number</label><input id="idNum" inputmode="numeric" maxlength="13" autocomplete="off" placeholder="9001015000089" class="field"></div>
+        <div><label class="lbl" for="cell">Cell number</label><input id="cell" type="tel" autocomplete="tel" placeholder="082 000 0000" class="field"></div>
+        <div class="md:col-span-2"><label class="lbl" for="email">Email (optional)</label><input id="email" type="email" autocomplete="email" class="field"></div>
+      </div>
+      <button type="button" id="scanBtn" class="btn ghost mt-3">Scan ID document</button>
+    </fieldset>
+    <fieldset class="card"><legend class="px-2 font-display text-sm text-wine">Step 2 of 4: About you (optional)</legend>
+      <p class="mb-3 text-xs text-mute">These answers help us make voting accessible and are never shown on your ballot. You can choose "Prefer not to say".</p>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div><label class="lbl" for="gender">Gender</label><select id="gender" class="field"><option>Prefer not to say</option><option>Female</option><option>Male</option><option>Non-binary</option></select></div>
+        <div><label class="lbl" for="race">Race</label><select id="race" class="field"><option>Prefer not to say</option><option>Black African</option><option>Coloured</option><option>Indian / Asian</option><option>White</option><option>Other</option></select></div>
+        <div><label class="lbl" for="disability">Disability</label><select id="disability" class="field"><option>None</option><option>Hearing / Deaf</option><option>Visual</option><option>Physical / mobility</option><option>Speech</option><option>Intellectual / learning</option><option>Other</option><option>Prefer not to say</option></select></div>
+        <div><label class="lbl" for="homeLang">Home language</label><select id="homeLang" class="field"><option>English</option><option>isiZulu</option><option>isiXhosa</option><option>Afrikaans</option><option>Sepedi</option><option>Setswana</option><option>Sesotho</option><option>Xitsonga</option><option>siSwati</option><option>Tshivenda</option><option>isiNdebele</option><option>South African Sign Language</option></select></div>
+      </div>
+      <p id="signHint" hidden class="mt-3 rounded-lg border-2 border-blue p-3 text-sm">✔ A sign language video is available. <a href="#guide/video" class="font-bold underline">Watch how to vote</a></p>
+    </fieldset>
+    <fieldset class="card"><legend class="px-2 font-display text-sm text-wine">Step 3 of 4: Residential address</legend>
+      <label class="lbl" for="addr">Address (decides your voting district)</label>
+      <input id="addr" list="addrList" placeholder="Street or suburb" class="field">
+      <datalist id="addrList"><option>8115 Vilakazi Street, Orlando West, Soweto, 1804</option><option>12 Main Road, Emndeni, Soweto, 1868</option></datalist>
+      <p class="mt-1 text-xs text-mute">Voting district: <b id="vd">not assigned yet</b></p>
+    </fieldset>
+    <fieldset class="card"><legend class="px-2 font-display text-sm text-wine">Step 4 of 4: Special vote (optional)</legend>
+      <label class="flex min-h-11 items-center gap-3 text-sm"><input type="checkbox" class="h-5 w-5 accent-wine"> Home visit (disability, illness or pregnancy)</label>
+      <label class="flex min-h-11 items-center gap-3 text-sm"><input type="checkbox" class="h-5 w-5 accent-wine"> Vote at a station before election day</label>
+      <label class="flex min-h-11 items-center gap-3 text-sm"><input type="checkbox" class="h-5 w-5 accent-wine"> Vote outside my district (Section 24A)</label>
+    </fieldset>
+    <p id="regMsg" role="status" class="min-h-6 font-semibold"></p>
+    <button class="btn" type="submit">Submit and verify registration</button>
+  </form>
+</section>
+
+<!-- STATIONS -->
+<section id="stations" class="screen" data-title="Voting stations" hidden>
+  <input id="stSearch" type="search" placeholder="Search suburb, postal code or VD number" aria-label="Search stations" class="field mb-3">
+  <div class="overflow-hidden rounded-2xl border border-line bg-[#EADFC9]" role="img" aria-label="Map of nearby stations">
+    <svg viewBox="0 0 400 200" class="block h-52 w-full" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="#fff" stroke-width="9"><path d="M0 150Q100 90 200 120T400 70"/><path d="M120 0L170 200"/><path d="M280 0L240 200"/></g>
+      <g transform="translate(110 90)"><polygon class="ping" points="0,-16 5,-5 17,-5 8,3 11,15 0,8 -11,15 -8,3 -17,-5 -5,-5" fill="#5E1A35" stroke="#fff" stroke-width="2"/><text y="32" text-anchor="middle" font-size="12" fill="#3F0F23">Your station</text></g>
+      <g transform="translate(290 70)"><rect x="-9" y="-9" width="18" height="18" fill="#1F4E79" stroke="#fff" stroke-width="2"/><text y="26" text-anchor="middle" font-size="12" fill="#3F0F23">Vilakazi Hall</text></g>
+      <g transform="translate(330 150)"><rect x="-9" y="-9" width="18" height="18" fill="#1F4E79" stroke="#fff" stroke-width="2"/><text y="26" text-anchor="middle" font-size="12" fill="#3F0F23">Phefeni</text></g></svg>
+  </div>
+  <h2 class="mb-2 mt-6 font-display text-sm text-wine">Your assigned station</h2>
+  <div id="myStation" class="card"></div>
+  <h2 class="mb-1 mt-6 font-display text-sm text-wine">Other nearby stations</h2>
+  <p class="mb-2 text-xs text-mute">Voting outside your district needs advance notice.</p>
+  <ul id="stList" class="space-y-2"></ul>
+</section>
+
+<!-- GUIDE -->
+<section id="guide" class="screen" data-title="Voting guide" hidden>
+  <div class="flex border-b-2 border-line font-display text-xs" role="tablist">
+    <button role="tab" data-tab="steps" class="tab">Step by step</button><button role="tab" data-tab="video" class="tab">Videos</button><button role="tab" data-tab="practice" class="tab">Practice ballot</button><button role="tab" data-tab="faq" class="tab">FAQ</button>
+  </div>
+  <div id="tab-steps" class="panel">
+    <ol class="mt-2 divide-y divide-line">
+      <li class="step"><b>Arrive with valid ID</b><p>Bring your original Smart ID card, green ID book or valid temporary ID certificate.</p></li>
+      <li class="step"><b>Verify your identity</b><p>An official checks your ID against the voters' roll and directs you to a voting tablet.</p></li>
+      <li class="step"><b>Choose your option on the tablet</b><p>Tap the option you want. You can change your choice before you confirm.</p></li>
+      <li class="step"><b>Confirm your vote</b><p>Review your choice and tap Confirm. Your vote is cast in secret.</p><button data-tab="practice" class="btn mt-3">Try the practice ballot</button></li>
+      <li class="step"><b>See your confirmation</b><p>The tablet shows a confirmation screen. You are done. Nothing is printed and there are no paper ballots.</p></li>
+    </ol>
+  </div>
+  <div id="tab-video" class="panel" hidden>
+    <h2 class="mt-5 font-display text-wine">How to vote on the tablet</h2>
+    <video id="vid1" controls preload="metadata" class="mt-3 aspect-video w-full rounded-2xl bg-black"><source src="how-to-vote.mp4" type="video/mp4">Your browser cannot play this video.</video>
+    <p id="vidMsg1" hidden class="mt-3 rounded-lg border-2 border-dashed border-gold p-3 text-sm">This video is coming soon.</p>
+    <h2 class="mt-5 font-display text-wine">How to vote in South African Sign Language</h2>
+    <img src="how-to-vote-sasl.gif" alt="Sign language demo: how to vote" class="mt-3 w-full rounded-2xl bg-black">
+    <p class="mt-2 text-xs text-mute">Demo preview. The final video will be signed by a South African Sign Language signer.</p>
+  </div>
+  <div id="tab-practice" class="panel" hidden>
+    <p class="mt-3 text-sm text-mute">Practice only. Options are listed alphabetically for impartiality. Tap one option, then tap Confirm, just like on the voting tablet.</p>
+    <button id="readBtn" class="btn ghost mt-3">Read aloud</button>
+    <ul id="ballot" class="my-4 space-y-2"></ul>
+    <p id="validity" role="status" class="rounded-xl border-2 border-line bg-card p-3 font-semibold">Tap an option to begin.</p>
+    <div class="mt-3 grid grid-cols-2 gap-2"><button id="confirm" class="btn" disabled>Confirm vote</button><button id="resetBallot" class="btn ghost">Start again</button></div>
+  </div>
+  <div id="tab-faq" class="panel space-y-2 pt-3" hidden>
+    <details class="card"><summary class="cursor-pointer font-display text-sm">Is there a paper ballot?</summary><p class="mt-2 text-sm">No. Voting is fully digital on a tablet at your station.</p></details>
+    <details class="card"><summary class="cursor-pointer font-display text-sm">Can I vote without my ID?</summary><p class="mt-2 text-sm">No. You need an original, valid ID.</p></details>
+    <details class="card"><summary class="cursor-pointer font-display text-sm">Who runs the voting tablets?</summary><p class="mt-2 text-sm">Only the company. This app never casts votes.</p></details>
+    <details class="card"><summary class="cursor-pointer font-display text-sm">Does this app see how I vote?</summary><p class="mt-2 text-sm">No. You vote in secret at your station.</p></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="screen" data-title="Contact us" hidden>
+  <p class="mb-4 text-mute">Questions about registering or voting? Reach us here.</p>
+  <div class="grid gap-3">
+    <a class="contact" href="mailto:info@independentmandate.co.za"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span><b>Email</b><br>info@independentmandate.co.za</span></a>
+    <a class="contact" href="tel:+27110000000"><svg class="ico" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><b>Phone</b><br>+27 11 000 0000</span></a>
+  </div>
+  <h2 class="mb-3 mt-8 font-display text-sm text-wine">Follow us</h2>
+  <div class="flex gap-3">
+    <a class="social" href="#" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg></a>
+    <a class="social" href="#" aria-label="Facebook"><svg class="ico" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+    <a class="social" href="#" aria-label="X"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+    <a class="social" href="#" aria-label="LinkedIn"><svg class="ico" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+  </div>
+</section>
+<!-- VERIFY (BNB Chain) -->
+<section id="verify" class="screen" data-title="Verify results" hidden>
+  <p class="text-mute">After the election, a fingerprint of the final results is published on BNB Chain so anyone can check the results were not changed. Only a fingerprint (hash) is published, never who you are or how you voted.</p>
+  <div class="card mt-4"><p class="font-display text-sm text-wine">Network status</p><p id="bnbStatus" role="status" class="mt-1">Checking…</p></div>
+  <form id="bnbForm" class="card mt-4 space-y-3" novalidate>
+    <div><label class="lbl" for="txHash">Transaction hash (from the published results)</label><input id="txHash" class="field" placeholder="0x…" autocomplete="off"></div>
+    <div><label class="lbl" for="rootHash">Results fingerprint to check</label><input id="rootHash" class="field" placeholder="0x…" autocomplete="off"></div>
+    <button class="btn" type="submit">Verify on BNB Chain</button>
+  </form>
+  <p id="bnbResult" role="status" class="mt-4 font-semibold"></p>
+</section>
+</main>
+
+<nav class="fixed inset-x-0 bottom-0 z-30 flex bg-deep pb-[env(safe-area-inset-bottom)] font-display text-white lg:inset-x-auto lg:bottom-auto lg:right-44 lg:top-0 lg:h-[60px] lg:bg-transparent lg:pb-0" aria-label="Main">
+  <a href="#home" class="bn" data-i="home">Home</a><a href="#guide" class="bn" data-i="guide">Voting guide</a><a href="#stations" class="bn" data-i="stations">Voting stations</a><a href="#register" class="bn" data-i="register">Register to vote</a><a href="#contact" class="bn" data-i="contact">Contact us</a>
+</nav>
+
+<button id="a11yBtn" class="fab left-4" aria-expanded="false" aria-controls="a11yPanel">Accessibility</button>
+<div id="a11yPanel" hidden role="dialog" aria-label="Accessibility options" class="panelbox left-4 space-y-3">
+  <h2 class="font-display text-wine">Accessibility</h2>
+  <button id="readPage" class="btn">Read this page aloud</button>
+  <button id="stopRead" class="btn ghost">Stop reading</button>
+  <label class="lbl" for="rate">Reading speed</label><input id="rate" type="range" min="0.6" max="1.4" step="0.1" value="1" class="w-full accent-wine">
+  <label class="flex min-h-11 items-center gap-3 text-sm"><input id="autoRead" type="checkbox" class="h-5 w-5 accent-wine"> Read each page automatically</label>
+  <label class="flex min-h-11 items-center gap-3 text-sm"><input id="bigText" type="checkbox" class="h-5 w-5 accent-wine"> Larger text</label>
+  <label class="flex min-h-11 items-center gap-3 text-sm"><input id="contrast" type="checkbox" class="h-5 w-5 accent-wine"> High contrast</label>
+</div>
+<button id="botBtn" class="fab right-4" aria-expanded="false" aria-controls="botBox">Ask I'am okay</button>
+<section id="botBox" hidden aria-label="I'am okay chat helper" class="panelbox right-4">
+  <div class="flex items-center justify-between"><b class="font-display text-wine">I'am okay</b><button id="botClose" aria-label="Close chat" class="h-11 w-11 text-xl">✕</button></div>
+  <div id="botLog" class="my-3 flex max-h-64 flex-col gap-2 overflow-y-auto" aria-live="polite"></div>
+  <div id="botChips" class="mb-3 flex flex-wrap gap-2"></div>
+  <form id="botForm" class="flex gap-2"><input id="botInput" class="field !mt-0" placeholder="Ask a question" autocomplete="off" aria-label="Your question"><button class="btn !w-auto !px-4">Send</button></form>
+  <p class="mt-2 text-xs text-mute">Never type your ID number here.</p>
+</section>
+<dialog id="slip" class="rounded-2xl bg-card p-6"><h2 class="font-display text-wine">Voter slip</h2><p id="slipTxt" class="my-3"></p><button class="btn" onclick="this.closest('dialog').close()">Close</button></dialog>
+<div id="toast" role="status" class="pointer-events-none fixed bottom-24 left-1/2 z-50 -translate-x-1/2 translate-y-4 rounded-full bg-deep px-5 py-2 text-sm text-white opacity-0 transition"></div>
+<script src="app.js"></script>
+<script src="accessibility.js"></script>
+<script src="chatbot.js"></script>
+<script src="binance.js"></script>
+</body>
+</html>
